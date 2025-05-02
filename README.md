@@ -78,3 +78,6 @@ Remaining tokens displayed on dashboard and result page
 Token balance stored in SQLite (using SQLModel ORM)
 
 ---
+
+### Trained_Model_Link:
+https://colab.research.google.com/drive/1bWcOI0bAtcl-RNhpHCTmChenqAeX9mR4?usp=sharing
