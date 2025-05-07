@@ -1,11 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Prediction Result:</h2>
+    <section style="background: #030303; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
+        <h2 style="color: #0077cc;">🔍 Prediction Result</h2>
 
-    <p>The uploaded garbage was classified as: <strong>{{ result }}</strong></p>
+        <p style="font-size: 1.2em;">
+            The uploaded garbage was classified as:
+            <strong style="color: #333;">{{ result }}</strong>
+        </p>
 
-    <p>Remaining tokens: <strong>{{ tokens }}</strong></p>
+        <p>
+            🪙 Remaining tokens: <strong>{{ tokens }}</strong>
+        </p>
 
-    <a href="/">Classify another image</a>
+        <a href="/" style="display: inline-block; margin-top: 15px; background: #0077cc; color: white; padding: 10px 15px; border-radius: 6px; text-decoration: none;">
+            🔁 Classify another image
+        </a>
+    </section>
 {% endblock %}

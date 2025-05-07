@@ -1,14 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Upload an image for classification:</h2>
+<link rel="stylesheet" href="/static/style.css">
 
-    {% if user %}
-        <form action="/predict" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" required>
-            <button type="submit">Predict</button>
-        </form>
-    {% else %}
-        <p>Please <a href="/login">log in</a> to upload an image.</p>
-    {% endif %}
+<div class="upload-page">
+
+    <div class="card">
+        <h2 class="card-title">🗂️ Classify Your Waste Image</h2>
+
+        {% if user %}
+            <form action="/predict" method="post" enctype="multipart/form-data" class="upload-form">
+                <label for="file-upload" class="custom-file-upload">
+                    📷 Click to upload an image
+                    <input id="file-upload" type="file" name="file" accept="image/*" required>
+                </label>
+                <button class="predict-btn" type="submit">🚀 Predict</button>
+            </form>
+            <p class="info-text">You have <strong>{{ tokens }}</strong> tokens remaining.</p>
+        {% else %}
+            <p class="login-msg">🔒 Please <a href="/login">log in</a> to upload and predict images.</p>
+        {% endif %}
+    </div>
+
+</div>
 {% endblock %}

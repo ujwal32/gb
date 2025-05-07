@@ -3,36 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <title>Garbage Classifier</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; }
-        header { background: #f0f0f0; padding: 10px; margin-bottom: 20px; }
-        footer { margin-top: 20px; font-size: 0.9em; color: #777; }
-        .status { background: #eef; padding: 10px; margin-bottom: 10px; }
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background: #0077cc;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
+        }
+
+        .status {
+            background: #eef;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+
+        .user-info {
+            background: #ffffff88;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+            color: #fff;
+        }
+
+        a {
+            color: #ffeb3b;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Garbage Classifier App</h1>
+        <h1>🚮 Garbage Classifier App</h1>
+
         {% if user %}
-            <p>
-                Welcome <strong>{{ user.name }}</strong> |
-                Email: {{ user.email }} |
+            <div class="user-info">
+                Welcome <strong>{{ user.name }}</strong><br>
+                Email: {{ user.email }}<br>
                 Tokens left: {{ tokens }} |
                 <a href="/logout">Logout</a>
-            </p>
+            </div>
         {% else %}
-            <p><a href="/login">Login with Google</a></p>
+            <div class="user-info">
+                <a href="/login">Login with Google</a>
+            </div>
         {% endif %}
 
-        {% if aqi %}
-            <div class="status">Current AQI: {{ aqi }}</div>
+        {% if aqi == "Unavailable" %}
+            <div class="status" style="color: black;">🌫️ Current AQI: {{ aqi }}</div>
+        {% else %}
+            <div class="status">🌫️ Current AQI: {{ aqi }}</div>
         {% endif %}
+
     </header>
 
     {% block content %}{% endblock %}
 
     <footer>
-        <p>&copy; 2025 Garbage Classifier App</p>
+        &copy; 2025 Garbage Classifier App. Built with ❤️.
     </footer>
 </body>
 </html>
